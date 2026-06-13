@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Localizador de Pessoas</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="panel">
+        <h1>Localizador de Pessoas</h1>
+        <p class="lead">Clique no mapa para marcar uma pessoa e salvar a localização.</p>
+
+        <div class="card">
+          <h2>Buscar endereço</h2>
+          <div class="search-row">
+            <input id="address-input" type="text" placeholder="Ex.: Praça da Sé, São Paulo" />
+            <button id="search-address-btn" type="button">Ir para o mapa</button>
+          </div>
+          <p id="search-status" class="status">Digite um endereço para localizar no mapa.</p>
+        </div>
+
+        <div class="card">
+          <h2>Adicionar pessoa</h2>
+          <form id="person-form" class="form-grid">
+            <label>
+              Nome
+              <input id="person-name" type="text" placeholder="Ex.: Maria Silva" required />
+            </label>
+            <label>
+              Endereço
+              <input id="person-address" type="text" placeholder="Ex.: Rua XV de Novembro, Curitiba" />
+            </label>
+            <label>
+              CPF
+              <input id="person-cpf" type="text" placeholder="Ex.: 123.456.789-00" />
+            </label>
+            <label>
+              Data de nascimento
+              <input id="person-birthdate" type="date" />
+            </label>
+            <label>
+              Observação
+              <input id="person-note" type="text" placeholder="Ex.: Visitou a empresa" />
+            </label>
+            <label>
+              Foto
+              <input id="person-image" type="file" accept="image/*" />
+            </label>
+            <button id="use-address-btn" type="button">Usar endereço</button>
+            <button type="submit">Cadastrar Individuo</button>
+          </form>
+          <p id="status" class="status">Clique no mapa para escolher a posição.</p>
+        </div>
+
+        <div class="card">
+          <h2>Importar planilha</h2>
+          <p class="small-note">Envie um CSV com colunas: nome,endereço,observação.</p>
+          <input id="csv-input" type="file" accept=".csv,text/csv" />
+          <button id="import-csv-btn" type="button" class="secondary-btn">Importar planilha</button>
+          <p id="csv-status" class="status">Use um arquivo CSV para carregar pessoas no mapa.</p>
+        </div>
+
+        <div class="card">
+          <h2>Pessoas salvas</h2>
+          <ul id="people-list" class="people-list"></ul>
+        </div>
+      </aside>
+
+      <main class="map-wrap">
+        <div id="map"></div>
+      </main>
+    </div>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="app.js"></script>
+  </body>
+</html>
